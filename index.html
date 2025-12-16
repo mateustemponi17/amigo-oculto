@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Amigo Oculto 🎁</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #c62828, #2e7d32);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .natal {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h3>🎄 Amigo Oculto 🎄</h3>
+
+  <p><strong>
+    Olá amiguinho, escolha o seu nome na lista a seguir e saiba quem será o seu amigo oculto
+  </strong></p>
+
+  <select id="nome">
+    <option value="">Selecione seu nome</option>
+    <option>Marcela</option>
+    <option>Mateus</option>
+    <option>João Antônio</option>
+    <option>Camilla</option>
+    <option>Léo</option>
+    <option>Gabi</option>
+    <option>Vitor</option>
+    <option>Giovanna</option>
+  </select>
+
+  <button onclick="revelar()">Ver meu amigo oculto</button>
+
+  <div class="resultado" id="resultado"></div>
+  <div class="natal" id="mensagemNatal"></div>
+</div>
+
+<script>
+  // 🔒 SORTEIO FIXO (RESULTADO ESCONDIDO)
+  const sorteio = {
+    "Marcela": "###",
+    "Mateus": "###",
+    "João Antônio": "###",
+    "Camilla": "###",
+    "Léo": "###",
+    "Gabi": "###",
+    "Vitor": "###",
+    "Giovanna": "###"
+  };
+
+  function revelar() {
+    const nome = document.getElementById("nome").value;
+    const resultado = document.getElementById("resultado");
+    const natal = document.getElementById("mensagemNatal");
+
+    if (!nome) {
+      resultado.innerHTML = "Por favor, selecione seu nome.";
+      natal.innerHTML = "";
+      return;
+    }
+
+    resultado.innerHTML = `🎁 Você tirou:<br><br>${sorteio[nome]}`;
+    natal.innerHTML =
+      "🎄 Aguardo vocês e se não levar o chinelo vai tomar na bundinha rs 😄";
+  }
+</script>
+
+</body>
+</html>
